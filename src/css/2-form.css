@@ -10,7 +10,11 @@ body {
 
 
 .feedback-form {
-    padding: 24px;
+    display: inline-flex;
+        padding: 24px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
 }
 
 label {
