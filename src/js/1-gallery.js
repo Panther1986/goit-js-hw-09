@@ -70,29 +70,24 @@ const images = [
 const imagesContainer = document.querySelector('.gallery');
 
 
-function cardImageMarkup(images) {
+function generateGalleryMarkup(images) {
     return images.map(({preview, original, description}) => {
         return `
    <li class="gallery-item">
   <a class="gallery-link" href="${original}">
-    <img class="gallery-image" src="${preview}" alt="${description}}" />
+    <img class="gallery-image" src="${preview}" alt="${description}" />
   </a>
 </li>
     `;
     }).join('');
 }
-const imageMarkup = cardImageMarkup(images);
+const imageMarkup = generateGalleryMarkup(images);
 imagesContainer.insertAdjacentHTML('beforeend', imageMarkup);
 
 
 
 const lightbox = new SimpleLightbox('.gallery a', {
-  captions: true,
-  captionType: 'attr',
   captionsData: 'alt',
-  captionPosition: 'bottom',
-  fadeSpeed: 150,
-  captionSelector: "img",
   captionDelay: 250,
 });
 
