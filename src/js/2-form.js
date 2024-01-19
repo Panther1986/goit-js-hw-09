@@ -22,7 +22,7 @@ const formData = {
 function alertMessageForUser(e) {
   e.preventDefault();
 
-  if (form.elements.email.value === '' || form.elements.message.value === '') {
+  if (form.elements.email.value.trim() === '' || form.elements.message.value.trim() === '') {
     alert('Please enter your email and message');
     return;
   }
@@ -32,12 +32,11 @@ function alertMessageForUser(e) {
 }
 
 function populateText() {
-  const savedMessage = localStorage.getItem(STORAGE_KEY);
+   const savedMessage = localStorage.getItem(STORAGE_KEY);
 
   if (savedMessage) {
-    const formData = JSON.parse(savedMessage);
-    form.elements.email.value = formData.email;
-    textarea.value = formData.message;
+    form.elements.email.value = storageForm.email.trim();
+    textarea.value = storageForm.message.trim();
     
   }
 }
